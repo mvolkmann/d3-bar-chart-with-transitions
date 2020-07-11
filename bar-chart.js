@@ -96,7 +96,8 @@ function updateText(text) {
 
 function updateXAxis(svg, data) {
   if (!xAxisGroup) {
-    // Create the x-axis that displays fruit names.
+    // Create an SVG group that will hold the x axis and
+    // translate the group to the appropriate position in the SVG.
     xAxisGroup = svg
       .append('g')
       .attr('class', 'x-axis')
@@ -104,12 +105,15 @@ function updateXAxis(svg, data) {
     xAxisGroup = myTransition(xAxisGroup);
   }
 
+  // Create a scale that maps fruit names to positions on the x axis.
   const xAxisScale = d3
     .scaleBand()
     .domain(data.map(item => item.name)) // fruit names
     .range([LEFT_PADDING, LEFT_PADDING + usableWidth]);
+
+  // Create and call an axis generator function that renders the xAxis.
   const xAxis = d3.axisBottom(xAxisScale).ticks(data.length);
-  xAxisGroup.call(xAxis);
+  xAxis(xAxisGroup);
 }
 
 function updateYAxis(svg, data, max) {
@@ -224,10 +228,10 @@ function updateData() {
   groups.attr('transform', (_, i) => `translate(${xScale(i)}, 0)`);
 
   // Update all the rect elements using their newly associated data.
-  groups.select('rect').call(updateRect);
+  updateRect(groups.select('rect'));
 
   // Update all the text elements using their newly associated data.
-  groups.select('text').call(updateText);
+  updateText(groups.select('text'));
 
   updateXAxis(svg, data);
   updateYAxis(svg, data, max);
