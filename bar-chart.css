@@ -1,0 +1,26 @@
+body {
+  background-color: linen;
+  font-family: sans-serif;
+}
+
+.bar > rect {
+  stroke: black;
+  stroke-width: 1;
+}
+
+.bar > text {
+  text-anchor: middle;
+}
+
+button {
+  margin-top: 1rem;
+}
+
+#chart {
+  background-color: white;
+}
+
+.x-axis > .tick > text {
+  /* Rotate labels so they fit below bars better. */
+  transform: translate(-8px, 15px) rotate(-45deg);
+}

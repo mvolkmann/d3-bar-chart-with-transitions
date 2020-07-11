@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <title>D3 Bar Chart</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="D3 Bar Chart" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="./bar-chart.css" />
+
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="./bar-chart.js" defer></script>
+  </head>
+  <body>
+    <svg id="chart"></svg>
+    <div>
+      <!-- Render a new version of the chart when this is pressed. -->
+      <button onclick="updateData()">Update</button>
+    </div>
+  </body>
+</html>
