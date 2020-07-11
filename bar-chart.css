@@ -21,6 +21,6 @@ button {
 }
 
 .x-axis > .tick > text {
-  /* Rotate labels so they fit below bars better. */
+  /* Translate and rotate labels so they fit below bars better. */
   transform: translate(-8px, 15px) rotate(-45deg);
 }
