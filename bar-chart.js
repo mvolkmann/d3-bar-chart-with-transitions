@@ -30,7 +30,7 @@ const allData = [
 
 let barPadding, barWidth, xAxisGroup, xScale, yAxisGroup, yScale;
 
-// This is used to select bar colors based on their score.
+// This is used to select bar colors based on their index.
 const colorScale = d3.scaleOrdinal(d3.schemePaired); // 12 colors
 
 // You cannot invoke this with the call method on selections
